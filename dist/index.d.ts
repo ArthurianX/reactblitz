@@ -1,26 +1,23 @@
-import { MouseEventHandler, FC, ChangeEventHandler } from 'react';
+/// <reference types="react" />
+import { Project, EmbedOptions } from '@stackblitz/sdk/typings/interfaces';
+import { VM } from '@stackblitz/sdk/typings/vm';
 
-interface ButtonProps {
-    text?: string;
-    primary?: boolean;
-    disabled?: boolean;
-    size?: 'small' | 'medium' | 'large';
-    onClick?: MouseEventHandler<HTMLButtonElement>;
+interface RBlitzProject extends Project {
+}
+interface RBlitzOptions extends EmbedOptions {
+    renderWhenVisible?: boolean;
+    accentBorder?: boolean;
+    accentColor?: string;
+}
+interface RBlitzVM extends VM {
 }
 
-declare const Button: FC<ButtonProps>;
-
-interface InputProps {
-    id?: string;
-    label?: string;
-    error?: boolean;
-    message?: string;
-    success?: boolean;
-    disabled?: boolean;
-    placeholder?: string;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
+interface ReactBlitzProps {
+    options?: RBlitzOptions;
+    getStackBlitzInstance?: (vmInstance: RBlitzVM) => void;
+    project: Partial<RBlitzProject>;
 }
 
-declare const Input: FC<InputProps>;
+declare const ReactBlitz: ({ options, project, getStackBlitzInstance, }: ReactBlitzProps) => JSX.Element;
 
-export { Button, Input };
+export { ReactBlitz };
