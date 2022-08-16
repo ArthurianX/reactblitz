@@ -1,6 +1,6 @@
 {
   "name": "@arthurianx/reactblitz",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Stackblitz component and service to render StackBlitz's VM in React apps",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
