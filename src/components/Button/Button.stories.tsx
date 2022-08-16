@@ -1,14 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import Button  from './Button';
-import {ButtonProps} from "./Button.types"
+import Button from './Button';
+import { ButtonProps } from './Button.types';
 
 export default {
-    title: 'Marbella/Button',
+    title: 'ReactLibraryBoilerPlate/Button',
     component: Button,
-    argTypes: {
-    },
+    argTypes: {},
 } as Meta<typeof Button>;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
@@ -24,7 +23,7 @@ export const Secondary = Template.bind({});
 Secondary.args = {
     primary: false,
     disabled: false,
-    text: "Secondary",
+    text: 'Secondary',
 };
 
 export const Disabled = Template.bind({});
@@ -38,7 +37,7 @@ export const Small = Template.bind({});
 Small.args = {
     primary: true,
     disabled: false,
-    size:"small",
+    size: 'small',
     text: 'Small',
 };
 
@@ -46,7 +45,7 @@ export const Medium = Template.bind({});
 Medium.args = {
     primary: true,
     disabled: false,
-    size:"medium",
+    size: 'medium',
     text: 'Medium',
 };
 
@@ -54,6 +53,6 @@ export const Large = Template.bind({});
 Large.args = {
     primary: true,
     disabled: false,
-    size:"large",
+    size: 'large',
     text: 'Large',
 };

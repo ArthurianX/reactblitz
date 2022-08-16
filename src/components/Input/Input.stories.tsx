@@ -1,13 +1,12 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Input  from './Input';
-import {InputProps} from "./Input.types"
+import Input from './Input';
+import { InputProps } from './Input.types';
 
 export default {
-    title: 'Marbella/Input',
+    title: 'ReactLibraryBoilerPlate/Input',
     component: Input,
-    argTypes: {
-    },
+    argTypes: {},
 } as Meta<typeof Input>;
 
 const Template: Story<InputProps> = (args) => <Input {...args} />;
@@ -22,16 +21,16 @@ Primary.args = {
 export const Success = Template.bind({});
 Success.args = {
     error: false,
-    success:true,
+    success: true,
     disabled: false,
-    label: "Success",
+    label: 'Success',
 };
 
 export const Error = Template.bind({});
 Error.args = {
     error: true,
     disabled: false,
-    message: "Error",
+    message: 'Error',
 };
 
 export const Disabled = Template.bind({});
