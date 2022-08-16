@@ -1,3 +1,6 @@
+# The library is not yet functional, come back in a few days!
+
+<p align="center">--------------------------------------------------------</p>
 <p align="center">⚛️ + ⚡️ = ReactBlitz</p>
 <p align="center">--------------------------------------------------------</p>
 <p align="center"><a href="https://arthurianx.github.io/reactblitz"><bold>Checkout the StoryBook</bold></a></p>
