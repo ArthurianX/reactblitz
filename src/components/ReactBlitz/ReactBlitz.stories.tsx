@@ -29,6 +29,15 @@ AccentColor.args = {
     },
 };
 
+export const LightTheme = Template.bind({});
+LightTheme.args = {
+    options: {
+        theme: 'light',
+        accentBorder: true,
+        accentColor: '#49d5f5',
+    },
+};
+
 export const GetStackblitzInstance = Template.bind({});
 GetStackblitzInstance.args = {
     getStackBlitzInstance: (instance) => {
