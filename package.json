@@ -1,6 +1,6 @@
 {
   "name": "@arthurianx/reactblitz",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "React Stackblitz component and service to render StackBlitz's VM in React apps",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -30,6 +30,15 @@
     "url": "https://github.com/ArthurianX/reactblitz/issues"
   },
   "homepage": "https://arthurianx.github.io/reactblitz",
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0",
+    "styled-components": "^5.3.5"
+  },
+  "dependencies": {
+    "@stackblitz/sdk": "^1.8.0",
+    "styled-components": "^5.3.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
@@ -66,14 +75,10 @@
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
-    "styled-components": "^5.3.5",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
   "lint-staged": {
     "*.{js,ts,scss,md}": "prettier --write"
-  },
-  "dependencies": {
-    "@stackblitz/sdk": "^1.8.0"
   }
 }
