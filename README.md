@@ -1,5 +1,3 @@
-# The library is not yet functional, come back in a few days!
-
 <p align="center">--------------------------------------------------------</p>
 <p align="center">⚛️ + ⚡️ = ReactBlitz</p>
 <p align="center">--------------------------------------------------------</p>
