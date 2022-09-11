@@ -79,12 +79,14 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.4",
-    "trim-newlines": ">=3.0.1",
-    "glob-parent": ">=5.1.2",
-    "trim": ">=0.0.3"
+    "typescript": "^4.7.4"
   },
   "lint-staged": {
     "*.{js,ts,scss,md}": "prettier --write"
+  },
+  "overrides": {
+    "trim-newlines@<3.0.1": ">=3.0.1",
+    "glob-parent@<5.1.2": ">=5.1.2",
+    "trim@<0.0.3": ">=0.0.3"
   }
 }
