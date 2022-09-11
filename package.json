@@ -4,7 +4,9 @@
   "description": "React Stackblitz component and service to render StackBlitz's VM in React apps",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "storybook": "start-storybook -p 6006",
