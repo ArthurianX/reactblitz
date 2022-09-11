@@ -2,7 +2,7 @@ import React from 'react';
 import { RBlitzProject, RBlitzOptions, RBlitzVM } from '../util.types';
 import { createPortal } from 'react-dom';
 import ReactBlitz from '../components/ReactBlitz/ReactBlitz';
-
+``;
 const reactBlitzElement = async (
     element: HTMLElement,
     options: Partial<RBlitzOptions> | undefined,

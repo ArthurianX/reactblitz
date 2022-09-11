@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ReactBlitzProps } from './ReactBlitz.types';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -57,7 +57,7 @@ const ReactBlitz = ({
     );
     const stackBlitzContainer = useRef<HTMLDivElement>(null);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         reactBlitzBridge(stackBlitzContainer.current!, project, options).then(
             (vmInstance) => {
                 if (typeof getStackBlitzInstance === 'function') {
