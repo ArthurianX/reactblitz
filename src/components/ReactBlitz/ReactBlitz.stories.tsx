@@ -12,6 +12,12 @@ export default {
 
 const Template: Story<ReactBlitzProps> = (args) => <ReactBlitz {...args} />;
 
+const OutOfViewportTemplate: Story<any> = (args) => (<div style={{height: '460px', overflow: 'scroll'}}>
+    <div style={{ height: '1500px', display: 'flex', flexDirection: 'column', alignItems: 'end', justifyContent: 'end' }} >
+        <ReactBlitz {...args} />
+    </div>    
+</div>)
+
 export const Default = Template.bind({});
 
 export const AccentBorder = Template.bind({});
@@ -44,3 +50,13 @@ GetStackblitzInstance.args = {
         console.log('StackBlitz instance is ', instance);
     },
 };
+
+export const RenderWhenInViewport = OutOfViewportTemplate.bind({});
+RenderWhenInViewport.args = {
+    options: {
+        theme: 'light',
+        accentBorder: true,
+        accentColor: '#49d5f5',
+    },
+};
+
