@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { ReactBlitzProps } from './ReactBlitz.types';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 import {
     DefaultAccentColor,
@@ -14,11 +14,6 @@ import { darken } from 'polished';
 
 const StyledContainer = styled.div<Partial<ReactBlitzProps>>`
     border: 0;
-    //line-height: 1;
-    //font-size: 15px;
-    //cursor: pointer;
-    //font-weight: 700;
-    //font-weight: bold;
     border-radius: 3px;
     overflow: hidden;
     display: inline-block;
