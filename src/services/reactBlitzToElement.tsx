@@ -11,7 +11,6 @@ const ReactBlitzToElement = (props: {
 }) => {
     const { element, options, project, getStackBlitzInstance } = props;
 
-    console.log('Render to element', element);
     return createPortal(
         <ReactBlitz
             options={options!}
