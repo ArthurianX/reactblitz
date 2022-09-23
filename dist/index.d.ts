@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import { Project, EmbedOptions } from '@stackblitz/sdk/typings/interfaces';
 import { VM } from '@stackblitz/sdk/typings/vm';
+import React from 'react';
 
 interface RBlitzProject extends Project {
 }
@@ -30,6 +31,11 @@ interface ReactBlitzProps {
 
 declare const ReactBlitz: ({ options, project, getStackBlitzInstance, }: ReactBlitzProps) => JSX.Element;
 
-declare const reactBlitzElement: (element: HTMLElement, options: Partial<RBlitzOptions> | undefined, project: Partial<RBlitzProject> | undefined, getStackBlitzInstance: (vmInstance: RBlitzVM) => void) => Promise<void>;
+declare const ReactBlitzToElement: (props: {
+    element: HTMLElement;
+    options: Partial<RBlitzOptions> | undefined;
+    project: Partial<RBlitzProject> | undefined;
+    getStackBlitzInstance: (vmInstance: RBlitzVM) => void;
+}) => React.ReactPortal;
 
-export { ReactBlitz, reactBlitzElement };
+export { ReactBlitz, ReactBlitzToElement };

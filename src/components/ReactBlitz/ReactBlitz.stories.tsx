@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import ReactBlitz from './ReactBlitz';
 import { ReactBlitzProps } from './ReactBlitz.types';
+import ReactBlitzToElement from '../../services/reactBlitzToElement';
 
 export default {
     title: 'ReactBlitz',
@@ -37,6 +38,26 @@ const OutOfViewportTemplate: Story<any> = (args) => (
         </div>
     </div>
 );
+
+const RenderedProgrammaticallyTemplate: Story<any> = (args) => {
+    const eleRef: any = useRef(null);
+    const [isRefLoaded, setIsRefLoaded] = useState(false);
+    useLayoutEffect(() => {
+        if (eleRef.current) {
+            setIsRefLoaded(true);
+        }
+    }, []);
+    return (
+        <div>
+            <p ref={eleRef}>ReactBlitzElement will render here ...</p>
+            <div>
+                {isRefLoaded && (
+                    <ReactBlitzToElement element={eleRef.current} />
+                )}
+            </div>
+        </div>
+    );
+};
 
 export const Default = Template.bind({});
 
@@ -79,3 +100,7 @@ RenderWhenInViewport.args = {
         accentColor: '#49d5f5',
     },
 };
+
+export const RenderedProgrammatically = RenderedProgrammaticallyTemplate.bind(
+    {},
+);

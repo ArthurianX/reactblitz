@@ -1,4 +1,4 @@
 import ReactBlitz from './components/ReactBlitz/ReactBlitz';
-import reactBlitzElement from './services/reactBlitzElement';
+import ReactBlitzToElement from './services/reactBlitzToElement';
 
-export { ReactBlitz, reactBlitzElement };
+export { ReactBlitz, ReactBlitzToElement };

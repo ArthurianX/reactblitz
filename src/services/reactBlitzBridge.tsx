@@ -1,6 +1,7 @@
 import sdk from '@stackblitz/sdk';
 import { RBlitzOptions, RBlitzProject, RBlitzVM } from '../util.types';
 import {
+    DefaultAccentColor,
     DefaultDevToolsHeight,
     DefaultRBlitzHeight,
     DefaultRBlitzVerticalPadding,
@@ -25,7 +26,7 @@ const reactBlitzBridge = async (
             height: DefaultRBlitzHeight - DefaultRBlitzVerticalPadding,
             width: DefaultRBlitzWidth,
             accentBorder: false,
-            accentColor: '#6bedb5',
+            accentColor: DefaultAccentColor,
         },
         project: {
             title: 'Node Starter',
@@ -54,7 +55,6 @@ const reactBlitzBridge = async (
             },
         },
     };
-    // TODO: Do we need this try catch ?
     try {
         return await sdk.embedProject(
             element,
