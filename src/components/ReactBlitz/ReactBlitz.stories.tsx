@@ -12,11 +12,31 @@ export default {
 
 const Template: Story<ReactBlitzProps> = (args) => <ReactBlitz {...args} />;
 
-const OutOfViewportTemplate: Story<any> = (args) => (<div style={{height: '460px', overflow: 'scroll'}}>
-    <div style={{ height: '1500px', display: 'flex', flexDirection: 'column', alignItems: 'end', justifyContent: 'end' }} >
-        <ReactBlitz {...args} />
-    </div>    
-</div>)
+const OutOfViewportTemplate: Story<any> = (args) => (
+    <div style={{ height: '460px', overflow: 'scroll' }}>
+        <div
+            style={{
+                height: '1500px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'end',
+                justifyContent: 'end',
+            }}
+        >
+            <p
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    textAlign: 'center',
+                    width: '100%',
+                }}
+            >
+                Scroll Down ...
+            </p>
+            <ReactBlitz {...args} />
+        </div>
+    </div>
+);
 
 export const Default = Template.bind({});
 
@@ -59,4 +79,3 @@ RenderWhenInViewport.args = {
         accentColor: '#49d5f5',
     },
 };
-
