@@ -6,5 +6,6 @@ export interface RBlitzOptions extends EmbedOptions {
     renderWhenVisible?: boolean;
     accentBorder?: boolean;
     accentColor?: string;
+    loadingColor?: string;
 }
 export interface RBlitzVM extends VM {}

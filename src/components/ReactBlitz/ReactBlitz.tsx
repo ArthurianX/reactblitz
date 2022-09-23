@@ -3,6 +3,8 @@ import { ReactBlitzProps } from './ReactBlitz.types';
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import {
+    DefaultAccentColor,
+    DefaultLoadingColior,
     DefaultRBlitzHeight,
     DefaultRBlitzVerticalPadding,
     DefaultRBlitzWidth,
@@ -23,7 +25,9 @@ const StyledContainer = styled.div<Partial<ReactBlitzProps>>`
     position: relative;
     z-index: 1;
     background-color: ${(props) =>
-        props?.options?.accentColor ? props?.options?.accentColor : '#6bedb5'};
+        props?.options?.accentColor
+            ? props?.options?.accentColor
+            : DefaultAccentColor};
     width: ${(props) => props?.options?.width || DefaultRBlitzWidth};
     height: ${(props) =>
         props?.options?.height || props?.options?.accentBorder
@@ -37,7 +41,7 @@ const StyledContainer = styled.div<Partial<ReactBlitzProps>>`
       background-color: ${(props) =>
           props?.options?.accentColor
               ? darken(0.2, props?.options?.accentColor)
-              : darken(0.2, '#6bedb5')};
+              : darken(0.2, DefaultAccentColor)};
     }
     & iframe {
       margin: 0;
@@ -93,7 +97,7 @@ const ReactBlitz = ({
                     height: '100%',
                     backgroundColor: options?.accentColor
                         ? options?.accentColor
-                        : '#6bedb5',
+                        : DefaultAccentColor,
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -123,7 +127,11 @@ const ReactBlitz = ({
                     />
                     <circle
                         fill="#fff"
-                        stroke="#e74c3c"
+                        stroke={
+                            options?.loadingColor
+                                ? options.loadingColor
+                                : DefaultLoadingColior
+                        }
                         stroke-width="3"
                         cx="8"
                         cy="54"
