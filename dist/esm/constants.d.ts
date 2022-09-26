@@ -5,3 +5,4 @@ export declare const DefaultDevToolsHeight = 100;
 export declare const DefaultTerminalHeight = 50;
 export declare const DefaultAccentColor = "#6bedb5";
 export declare const DefaultLoadingColior = "#6be";
+export declare const DefaultRenderWhenVisible = true;
