@@ -101,6 +101,16 @@ RenderWhenInViewport.args = {
     },
 };
 
+export const RenderOutsideViewport = OutOfViewportTemplate.bind({});
+RenderOutsideViewport.args = {
+    options: {
+        theme: 'dark',
+        accentBorder: true,
+        accentColor: '#49d5f5',
+        renderWhenVisible: false,
+    },
+};
+
 export const RenderedProgrammatically = RenderedProgrammaticallyTemplate.bind(
     {},
 );

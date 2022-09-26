@@ -8,6 +8,7 @@ import {
     DefaultRBlitzHeight,
     DefaultRBlitzVerticalPadding,
     DefaultRBlitzWidth,
+    DefaultRenderWhenVisible,
 } from '../../constants';
 import reactBlitzBridge from '../../services/reactBlitzBridge';
 import { darken } from 'polished';
@@ -53,11 +54,33 @@ const ReactBlitz = ({
 }: ReactBlitzProps): JSX.Element => {
     const stackBlitzContainer = useRef<HTMLDivElement>(null);
     const loadingContainer = useRef<HTMLDivElement>(null);
+    let renderWhenVisible = DefaultRenderWhenVisible;
+
+    if (options && options.renderWhenVisible !== undefined) {
+        renderWhenVisible = options.renderWhenVisible;
+    }
 
     useEffect(() => {
-        const rbObserver = new IntersectionObserver((rbContainer) => {
-            if (rbContainer[0].intersectionRatio <= 0) return;
+        let rbObserver: any;
+        if (renderWhenVisible) {
+            rbObserver = new IntersectionObserver((rbContainer) => {
+                if (rbContainer[0].intersectionRatio <= 0) return;
 
+                reactBlitzBridge(
+                    stackBlitzContainer.current!,
+                    project,
+                    options,
+                ).then((vmInstance) => {
+                    if (typeof getStackBlitzInstance === 'function') {
+                        getStackBlitzInstance(vmInstance!);
+                    }
+
+                    loadingContainer.current?.remove();
+                });
+            });
+
+            rbObserver.observe(stackBlitzContainer.current!);
+        } else {
             reactBlitzBridge(
                 stackBlitzContainer.current!,
                 project,
@@ -69,80 +92,81 @@ const ReactBlitz = ({
 
                 loadingContainer.current?.remove();
             });
-
-            return () => {
-                rbObserver.unobserve(rbContainer);
-            };
-        });
-
-        rbObserver.observe(stackBlitzContainer.current);
+        }
+        return () => {
+            try {
+                rbObserver.unobserve(stackBlitzContainer.current!);
+            } catch (_e) {}
+        };
     }, [stackBlitzContainer.current !== null]);
 
     return (
         <StyledContainer options={options} project={project}>
             <div ref={stackBlitzContainer}></div>
-            <div
-                ref={loadingContainer}
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    zIndex: 2,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: options?.accentColor
-                        ? options?.accentColor
-                        : DefaultAccentColor,
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                <svg
-                    version="1.1"
-                    id="L3"
-                    x="0px"
-                    y="0px"
+            {renderWhenVisible && (
+                <div
+                    ref={loadingContainer}
                     style={{
-                        width: DefaultRBlitzHeight / 2 + 'px',
-                        height: DefaultRBlitzHeight / 2 + 'px',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        zIndex: 2,
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: options?.accentColor
+                            ? options?.accentColor
+                            : DefaultAccentColor,
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
-                    viewBox="0 0 100 100"
-                    enable-background="new 0 0 0 0"
                 >
-                    <circle
-                        fill="none"
-                        stroke="#fff"
-                        stroke-width="4"
-                        cx="50"
-                        cy="50"
-                        r="44"
-                        style={{ opacity: '0.5' }}
-                    />
-                    <circle
-                        fill="#fff"
-                        stroke={
-                            options?.loadingColor
-                                ? options.loadingColor
-                                : DefaultLoadingColior
-                        }
-                        stroke-width="3"
-                        cx="8"
-                        cy="54"
-                        r="6"
+                    <svg
+                        version="1.1"
+                        id="L3"
+                        x="0px"
+                        y="0px"
+                        style={{
+                            width: DefaultRBlitzHeight / 2 + 'px',
+                            height: DefaultRBlitzHeight / 2 + 'px',
+                        }}
+                        viewBox="0 0 100 100"
+                        enable-background="new 0 0 0 0"
                     >
-                        <animateTransform
-                            attributeName="transform"
-                            dur="2s"
-                            type="rotate"
-                            from="0 50 48"
-                            to="360 50 52"
-                            repeatCount="indefinite"
+                        <circle
+                            fill="none"
+                            stroke="#fff"
+                            stroke-width="4"
+                            cx="50"
+                            cy="50"
+                            r="44"
+                            style={{ opacity: '0.5' }}
                         />
-                    </circle>
-                </svg>
-            </div>
+                        <circle
+                            fill="#fff"
+                            stroke={
+                                options?.loadingColor
+                                    ? options.loadingColor
+                                    : DefaultLoadingColior
+                            }
+                            stroke-width="3"
+                            cx="8"
+                            cy="54"
+                            r="6"
+                        >
+                            <animateTransform
+                                attributeName="transform"
+                                dur="2s"
+                                type="rotate"
+                                from="0 50 48"
+                                to="360 50 52"
+                                repeatCount="indefinite"
+                            />
+                        </circle>
+                    </svg>
+                </div>
+            )}
         </StyledContainer>
     );
 };
