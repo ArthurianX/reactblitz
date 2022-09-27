@@ -1,10 +1,12 @@
 <p align="center">--------------------------------------------------------</p>
 <p align="center">⚛️ + ⚡️ = ReactBlitz</p>
 <p align="center">--------------------------------------------------------</p>
-![reactblitz](https://user-images.githubusercontent.com/2720451/192450584-a69167d0-d4c0-4f2e-b0f5-2135d47b46cb.gif)
+
 <p align="center"><a href="https://arthurianx.github.io/reactblitz"><bold>Checkout the StoryBook</bold></a></p>
 
 _Hiya there_ 🤠, 👋<sup>👋</sup>_'sup!?_
+
+![reactblitz](https://user-images.githubusercontent.com/2720451/192450584-a69167d0-d4c0-4f2e-b0f5-2135d47b46cb.gif)
 
 **ReactBlitz** is a small library that programmatically renders StackBlitz projects embedded in your React app, inline, or by targeting specific elements (in case of dynamic content).
 
