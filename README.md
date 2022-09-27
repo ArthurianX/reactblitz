@@ -1,7 +1,7 @@
 <p align="center">--------------------------------------------------------</p>
 <p align="center">⚛️ + ⚡️ = ReactBlitz</p>
 <p align="center">--------------------------------------------------------</p>
-<p align="center">![reactblitz](https://user-images.githubusercontent.com/2720451/192450584-a69167d0-d4c0-4f2e-b0f5-2135d47b46cb.gif)</p>
+![reactblitz](https://user-images.githubusercontent.com/2720451/192450584-a69167d0-d4c0-4f2e-b0f5-2135d47b46cb.gif)
 <p align="center"><a href="https://arthurianx.github.io/reactblitz"><bold>Checkout the StoryBook</bold></a></p>
 
 _Hiya there_ 🤠, 👋<sup>👋</sup>_'sup!?_
